@@ -8,9 +8,9 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV['MYAPP_DATABASE_USER'] %>
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
-  host:  <%= ENV['MYAPP_DATABASE_HOST'] || 'localhost' %>
+  username: <%= ENV['propdata_DATABASE_USER'] %>
+  password: <%= ENV['propdata_DATABASE_PASSWORD'] %>
+  host:  <%= ENV['propdata_DATABASE_HOST'] || 'localhost' %>
   timeout: 5000
 
 
@@ -27,7 +27,7 @@ test:
 
 production:
   <<: *default
-  database: propfata_production
-  username: <%= ENV['MYAPP_DATABASE_USER'] %>
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
-  host: <%= ENV['MYAPP_DATABASE_HOST'] %>
+  database: propdata_production
+  username: <%= ENV['propdata_DATABASE_USER'] %>
+  password: <%= ENV['propdata_DATABASE_PASSWORD'] %>
+  host: <%= ENV['propdata_DATABASE_HOST'] %>
