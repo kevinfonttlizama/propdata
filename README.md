@@ -11,3 +11,5 @@ rails db:create
 rails db:migrate para las migraciones
 
 rails serve para iniciar en modo de desarrollo
+
+![ER_Diagram0](https://github.com/kevinfonttlizama/propdata/assets/119996154/72b4c72a-e2b3-4e0d-8655-47867f840f27)
