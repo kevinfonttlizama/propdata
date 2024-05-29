@@ -1,0 +1,87 @@
+<h1>Edit Property</h1>
+
+<%= form_with(model: @property, local: true) do |form| %>
+  <% if @property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@property.errors.count, "error") %> prohibited this property from being saved:</h2>
+      <ul>
+        <% @property.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :property_type, class: 'form-label' %>
+    <%= form.text_field :property_type, class: 'form-control', required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :price, class: 'form-label' %>
+    <%= form.number_field :price, class: 'form-control', required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :currency, class: 'form-label' %>
+    <%= form.text_field :currency, class: 'form-control', required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :commune, class: 'form-label' %>
+    <%= form.text_field :commune, class: 'form-control', required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :address, class: 'form-label' %>
+    <%= form.text_field :address, class: 'form-control', required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :area, class: 'form-label' %>
+    <%= form.number_field :area, class: 'form-control', required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :bedrooms, class: 'form-label' %>
+    <%= form.number_field :bedrooms, class: 'form-control', required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :bathrooms, class: 'form-label' %>
+    <%= form.number_field :bathrooms, class: 'form-control', required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :latitude, class: 'form-label' %>
+    <%= form.number_field :latitude, class: 'form-control', step: 'any', required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :longitude, class: 'form-label' %>
+    <%= form.number_field :longitude, class: 'form-control', step: 'any', required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, class: 'form-label' %>
+    <%= form.text_area :description, class: 'form-control', required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :photos, class: 'form-label' %>
+    <%= form.file_field :photos, multiple: true, direct_upload: true, class: 'form-control' %>
+  </div>
+
+  <% if @property.photos.attached? %>
+    <div class="mb-3">
+      <h5>Current Photo:</h5>
+      <%= image_tag @property.photos.first.variant(resize_to_limit: [300, 200]), class: 'img-fluid' %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit 'Update Property', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', dashboard_path, class: 'btn btn-secondary mt-3' %>
