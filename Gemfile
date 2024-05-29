@@ -6,7 +6,9 @@ ruby "3.2.3"
 
 gem "devise"
 
-gem "pg"
+gem "pg", group: :production
+
+gem 'rails_12factor', group: :production
 
 gem "dotenv-rails", groups: [:development, :test]
 
