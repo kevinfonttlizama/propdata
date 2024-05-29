@@ -1,0 +1,59 @@
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-8">
+      <% if @property.photos.attached? %>
+        <%= image_tag @property.photos.first.variant(resize_to_limit: [800, 600]), class: "img-fluid" %>
+      <% else %>
+        <svg class="bd-placeholder-img card-img-top" width="100%" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <title><%= @property.address %></title>
+          <rect width="100%" height="100%" fill="#55595c"/>
+          <text x="50%" y="50%" fill="#eceeef" dy=".3em"><%= @property.address %></text>
+        </svg>
+      <% end %>
+      <div id="map-container" class="mt-4">
+        <div id='map' style='width: 100%; height: 450px;'></div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h2><%= @property.address %></h2>
+      <p><%= @property.description %></p>
+      <ul class="list-unstyled">
+        <li><strong>Tipo:</strong> <%= @property.property_type %> </li>
+        <li><strong>Precio en CLP:</strong> <%= @property.price_in_clp %> CLP</li>
+        <li><strong>Precio en USD:</strong> <%= @property.price_in_usd %> USD</li>
+        <li><strong>Área:</strong> <%= @property.area %> m²</li>
+        <li><strong>Habitaciones:</strong> <%= @property.bedrooms %></li>
+        <li><strong>Baños:</strong> <%= @property.bathrooms %></li>
+        <li><strong>Descripción:</strong> <%= @property.description %></li>
+        <li><strong>Comuna:</strong> <%= @property.commune %></li>
+        <li><strong>Latitud:</strong> <%= @property.latitude %></li>
+        <li><strong>Longitud:</strong> <%= @property.longitude %></li>
+      </ul>
+      <%= link_to 'Back to Home', root_path, class: 'btn btn-primary mt-2' %>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYXJ0aGFzZGsiLCJhIjoiY2x3cXE5ZHh5MDRzMDJscWU2aGcxbG1scyJ9.C6d1MYcUIMOvjwolTDKq-A';
+    var longitude = <%= @property.longitude %>;
+    var latitude = <%= @property.latitude %>;
+
+    var map = new mapboxgl.Map({
+      container: 'map', // container ID
+      style: 'mapbox://styles/mapbox/streets-v11', // style URL
+      center: [longitude, latitude], // starting position [lng, lat]
+      zoom: 12 // starting zoom
+    });
+
+    // Add navigation control (the +/- zoom buttons)
+    map.addControl(new mapboxgl.NavigationControl());
+
+    // Add a marker to the map at the property's location
+    new mapboxgl.Marker()
+      .setLngLat([longitude, latitude])
+      .addTo(map);
+  });
+</script>
