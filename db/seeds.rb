@@ -8,6 +8,14 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+
+
+# DB SEEEEEEDS ONLY FOR EXAMPLE PROJECT
+
+
+
+
+
 # property = Property.new(
 #   property_type: "Venta",
 #   price: 1500000,
@@ -34,4 +42,62 @@
 # else
 #   puts "Failed to save property:"
 #   puts property.errors.full_messages
+# end
+
+# Disable the validation temporarily
+# property2 = Property.new(
+#   property_type: "Venta",
+#   price: 1833621650,
+#   currency: "CLP",
+#   commune: "Lo barnechea (La Dehesa)",
+#   address: "camino el chin 124",
+#   area: 420,
+#   bedrooms: 3,
+#   bathrooms: 2,
+#   latitude: -33.349389,
+#   longitude: -70.541530,
+#   description: "Una hermosa propiedad ubicada en el en los barrios mas exclusivos de La Dehesa"
+# )
+
+# # Adjuntar una foto
+# property2.photos.attach(
+#   io: File.open(Rails.root.join('app/assets/images/casa_5.jpg')),
+#   filename: 'casa_5.jpg',
+#   content_type: 'image/jpg'
+# )
+
+# if property2.save
+#   puts "Property saved successfully!"
+# else
+#   puts "Failed to save property:"
+#   puts property2.errors.full_messages
+# end
+
+
+# property3 = Property.new(
+#   property_type: "Venta",
+#   price: 441566030,
+#   currency: "CLP",
+#   commune: "peñalolen",
+#   address: "Peñalolén Avenida Consistorial 2770",
+#   area: 400,
+#   bedrooms: 4,
+#   bathrooms: 3,
+#   latitude: -33.490359,
+#   longitude: --70.555948,
+#   description: "casa bonita en peñalolen a la venta con un excelente precio. Oportunidad unica"
+# )
+
+# # Adjuntar una foto
+# property3.photos.attach(
+#   io: File.open(Rails.root.join('app/assets/images/casa_5.jpg')),
+#   filename: 'casa_5.jpg',
+#   content_type: 'image/jpg'
+# )
+
+# if property3.save
+#   puts "Property saved successfully!"
+# else
+#   puts "Failed to save property:"
+#   puts property3.errors.full_messages
 # end
