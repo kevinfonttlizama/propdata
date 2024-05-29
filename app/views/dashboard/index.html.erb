@@ -1,0 +1,34 @@
+<h1>Mis Propiedades</h1>
+
+<%= link_to 'Crear Nueva Propiedad', new_property_path, class: 'btn btn-primary mb-3' %>
+
+<% if @properties.any? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Address</th>
+        <th>Price</th>
+        <th>Area</th>
+        <th>Bedrooms</th>
+        <th>Bathrooms</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @properties.each do |property| %>
+        <tr>
+          <td><%= property.address %></td>
+          <td><%= property.price %> <%= property.currency %></td>
+          <td><%= property.area %> m²</td>
+          <td><%= property.bedrooms %></td>
+          <td><%= property.bathrooms %></td>
+          <td><%= link_to 'Ver', property_path(property), class: 'btn btn-info' %></td>
+          <td><%= link_to 'Editar', edit_property_path(property), class: 'btn btn-warning' %></td>
+          <td><%= button_to 'Eliminar', property_path(property), method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Usted no tiene propiedades registradas</p>
+<% end %>
