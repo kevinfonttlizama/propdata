@@ -6,6 +6,8 @@ ruby "3.2.3"
 
 gem "devise"
 
+gem 'aws-sdk-s3', '~> 1.151'
+
 gem "pg", group: :production
 
 gem 'rails_12factor', group: :production
