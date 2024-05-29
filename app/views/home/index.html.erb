@@ -141,7 +141,7 @@
 
                   <div class="card-body">
                     <ul>
-                      <li>Precio: <%= property.price %> <%= property.currency %></li>
+                      <li>Precio: <%= number_to_currency(property.price, unit: property.currency == "CLP" ? "CLP " : "USD ", separator: ",", delimiter: ".") %> <%= property.currency %></li>
                       <li>Área: <%= property.area %> m²</li>
                       <li>Habitaciones: <%= property.bedrooms %></li>
                       <li>Baños: <%= property.bathrooms %></li>

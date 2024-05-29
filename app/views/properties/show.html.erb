@@ -20,8 +20,8 @@
       <p><%= @property.description %></p>
       <ul class="list-unstyled">
         <li><strong>Tipo:</strong> <%= @property.property_type %> </li>
-        <li><strong>Precio en CLP:</strong> <%= @property.price_in_clp %> CLP</li>
-        <li><strong>Precio en USD:</strong> <%= @property.price_in_usd %> USD</li>
+        <li><strong>Precio en CLP:</strong> <%= number_to_currency(@property.price_in_clp, unit: "CLP ", separator: ",", delimiter: ".") %></li>
+        <li><strong>Precio en USD:</strong> <%= number_to_currency(@property.price_in_usd, unit: "USD ", separator: ",", delimiter: ".") %></li>
         <li><strong>Área:</strong> <%= @property.area %> m²</li>
         <li><strong>Habitaciones:</strong> <%= @property.bedrooms %></li>
         <li><strong>Baños:</strong> <%= @property.bathrooms %></li>
