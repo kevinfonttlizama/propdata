@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+para correr este proyecto debemos tener instalada la version 7 o posterior de ruby on rails 
 
-Things you may want to cover:
+para iniciar este proyecto en modo de desarrollo clonamos el repositorio 
 
-* Ruby version
+luego ejecutamos bundle install 
 
-* System dependencies
+rails db:create
 
-* Configuration
+rails db:migrate para las migraciones
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rails serve para iniciar en modo de desarrollo
